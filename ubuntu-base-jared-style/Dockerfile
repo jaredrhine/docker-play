@@ -4,7 +4,10 @@
 #
 
 # Pull base image.
-FROM ubuntu
+FROM ubuntu:14.04
 
-# Install Nginx.
-RUN "apt-get update && apt-get dist-upgrade"
+# Update packages
+RUN "apt-get update"
+
+WORKDIR "/tmp"
+CMD [ "/bin/bash" ]

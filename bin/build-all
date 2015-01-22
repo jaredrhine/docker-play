@@ -1,0 +1,29 @@
+#!/bin/sh
+
+BUILDS="ubuntu-base-jared-style ubuntu-fat-jared-style app-server-1"
+
+set -x
+
+ROOT=/home/jared/work/docker/docker-play
+cd $ROOT
+
+for BUILD in $BUILDS; do
+  time docker build -t jaredrhine/$BUILD $BUILD
+done
+
+#cd $ROOT/ubuntu-base-jared-style
+#time docker build -t jaredrhine/ubuntu-base-jared-style .
+
+#cd $ROOT/ubuntu-fat-jared-style
+#time docker build -t jaredrhine/ubuntu-fat-jared-style .
+
+# libc6-dev problems, build-essential doesn't install
+#cd $ROOT/ubuntu-base-dev-jared-style
+#docker build -t jaredrhine/ubuntu-base-dev-jared-style .
+
+#cd $ROOT/app-server-1
+#docker build -t jaredrhine/app-server-1 .
+
+#docker push jaredrhine/ubuntu-base-jared-style jaredrhine/ubuntu-fat-jared-style jaredrhine/app-server-1
+
+#docker push jaredrhine/app-server-1
